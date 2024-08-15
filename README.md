@@ -1,1 +1,3 @@
 This is my research project for the PSY6009 Research Project in Psychological Research Methods with Data Science module, as part of my masters degree in Psychological Research Methods with Data Science.
+
+In this repository is this README file, a LICENCE, the RP_Script containing all the code for the data preparation, exploration and analysis, and the developmentalData dataset provides the data for the script. 
