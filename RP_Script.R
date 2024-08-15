@@ -4,6 +4,7 @@ library(readr) # For importing csv
 library(tidyverse) # For various - %%
 library(modelsummary) # For data summary
 library(effectsize) # For working out semi partial effect sizes for multiple linear regressions
+library(interactions) # For interaction visualisation plots
 
 
 # Import data
@@ -530,9 +531,30 @@ int_lm_function_eff_sizes(relPow_theta_rOP)
 
 # ----------------------------
 
-intlm1 <- lm(relPow_alpha_lCP ~ sex * age + eyes + IQ, data = rp_dev_data)
+## Plots to visualise the interaction between sex and age on the relative power of beta, across the left Centro Parietal, right Centro Parietal, Occipital, left Occipito Parietal and right Occipito Parietal regions
 
-intlm1 $ coefficients
+# Plot to visualise interaction for left Centro Parietal region
 
-summary(intlm1)
+int_lm2_forplot <- lm(relPow_beta_lCP ~ sex * age + eyes + IQ, data = rp_dev_data)
+interact_plot(int_lm2_forplot, pred = age, modx = sex, plot.points = T)
+
+# Plot to visualise interaction for right Centro Parietal region
+
+int_lm6_forplot <- lm(relPow_beta_rCP ~ sex * age + eyes + IQ, data = rp_dev_data)
+interact_plot(int_lm6_forplot, pred = age, modx = sex, plot.points = T)
+
+# Plot to visualise interaction for Occipital region
+
+int_lm10_forplot <- lm(relPow_beta_O ~ sex * age + eyes + IQ, data = rp_dev_data)
+interact_plot(int_lm10_forplot, pred = age, modx = sex, plot.points = T)
+
+# Plot to visualise interaction for left Occipito Parietal region
+
+int_lm14_forplot <- lm(relPow_beta_lOP ~ sex * age + eyes + IQ, data = rp_dev_data)
+interact_plot(int_lm14_forplot, pred = age, modx = sex, plot.points = T)
+
+# Plot to visualise interaction for right Occipito Parietal region
+
+int_lm18_forplot <- lm(relPow_beta_rOP ~ sex * age + eyes + IQ, data = rp_dev_data)
+interact_plot(int_lm18_forplot, pred = age, modx = sex, plot.points = T)
 
